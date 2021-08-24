@@ -11,6 +11,8 @@ DEBUG = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]
 
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
 # APPS
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -149,7 +151,7 @@ INTERNAL_IPS = ["127.0.0.1"]
 # CUSTOM USER MODEL CONFIGS
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/topics/auth/customizing/#substituting-a-custom-user-model
-AUTH_USER_MODEL = "accounts.CustomUser"
+AUTH_USER_MODEL = "accounts.User"
 
 # DJANGO-ALLAUTH CONFIGS
 # ------------------------------------------------------------------------------
