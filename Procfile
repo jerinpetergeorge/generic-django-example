@@ -1,1 +1,1 @@
-web: gunicorn config.wsgi:application --log-level=DEBUG
+web: python manage.py migrate && gunicorn config.wsgi:application --log-level=DEBUG
