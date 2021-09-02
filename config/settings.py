@@ -16,7 +16,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-SECRET_KEY
 SECRET_KEY = "j2@-mwo#(8k%l9f%zugc=^1%ug9-&xh4wmj!g@6uop@^l%run_"
 # https://docs.djangoproject.com/en/dev/ref/settings/#debug
-DEBUG = True
+DEBUG = env("DEBUG", bool, default=False)
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
 EXTRA_ALLOWED_HOSTS = env("EXTRA_ALLOWED_HOSTS", list, default=[])
 ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", *EXTRA_ALLOWED_HOSTS]
