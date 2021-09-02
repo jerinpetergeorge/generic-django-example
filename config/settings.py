@@ -1,5 +1,14 @@
 from pathlib import Path
 
+from environ import Env
+
+env = Env()
+
+# option to attach an env file
+# default location is `.env-dir/local`
+# if file not found, simply ignored
+env.read_env(env("ENV_FILE", default=".envs/env.local"))
+
 # GENERAL
 # ------------------------------------------------------------------------------
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -9,7 +18,8 @@ SECRET_KEY = "j2@-mwo#(8k%l9f%zugc=^1%ug9-&xh4wmj!g@6uop@^l%run_"
 # https://docs.djangoproject.com/en/dev/ref/settings/#debug
 DEBUG = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]
+EXTRA_ALLOWED_HOSTS = env("EXTRA_ALLOWED_HOSTS", list, default=[])
+ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", *EXTRA_ALLOWED_HOSTS]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
@@ -80,12 +90,7 @@ TEMPLATES = [
 # DATABASES
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
-}
+DATABASES = {"default": env.db()}
 
 # PASSWORDS
 # ------------------------------------------------------------------------------
@@ -120,7 +125,6 @@ USE_I18N = True
 USE_L10N = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#use-tz
 USE_TZ = True
-
 
 # STATIC
 # ------------------------------------------------------------------------------
