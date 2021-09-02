@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 # GENERAL
@@ -9,7 +10,8 @@ SECRET_KEY = "j2@-mwo#(8k%l9f%zugc=^1%ug9-&xh4wmj!g@6uop@^l%run_"
 # https://docs.djangoproject.com/en/dev/ref/settings/#debug
 DEBUG = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]
+extra_allowed_hosts = os.getenv("ALLOWED_HOSTS", "").split(",")
+ALLOWED_HOSTS = ["10-different-host-expressions-goes-here", *extra_allowed_hosts]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
@@ -174,3 +176,14 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
+
+
+# HERE STARTS DYNACONF EXTENSION LOAD (Keep at the very bottom of settings.py)
+# Read more at https://dynaconf.readthedocs.io/en/latest/guides/django.html
+import dynaconf  # noqa
+
+settings = dynaconf.DjangoDynaconf(
+    __name__, envvar_prefix="CONFIG", settings_files=["settings.yaml"]
+)  # noqa
+# HERE ENDS DYNACONF EXTENSION LOAD (No more code below this line)
+#
