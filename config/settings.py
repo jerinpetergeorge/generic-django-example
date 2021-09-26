@@ -26,6 +26,19 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # APPS
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
+LOCAL_APPS = [
+    # Local
+    "accounts",
+    "pages",
+    "polls",
+    "extra",
+]
+THIRD_PARTY_APPS = [
+    "allauth",
+    "allauth.account",
+    "crispy_forms",
+    "debug_toolbar",
+]
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -36,14 +49,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.sites",
     # Third-party
-    "allauth",
-    "allauth.account",
-    "crispy_forms",
-    "debug_toolbar",
-    # Local
-    "accounts",
-    "pages",
-    "polls",
+    *THIRD_PARTY_APPS,
+    # local apps
+    *LOCAL_APPS,
 ]
 
 # MIDDLEWARE
