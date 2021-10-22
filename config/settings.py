@@ -32,6 +32,7 @@ LOCAL_APPS = [
     "pages",
     "polls",
     "extra",
+    "kn_dash",
 ]
 THIRD_PARTY_APPS = [
     "allauth",
