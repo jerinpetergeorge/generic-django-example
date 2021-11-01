@@ -14,6 +14,7 @@ class TinyAutoField(SmallAutoField):
 def create_large_dataset(size=1000):
     from kn_dash.factory import PaymentTransactionFactory
     from kn_dash.models import PaymentTransaction
+
     for _ in range(size):
         PaymentTransaction.objects.bulk_create(
             PaymentTransactionFactory.build_batch(5000)

@@ -6,6 +6,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("accounts/", include("allauth.urls")),
     path("polls/", include("polls.urls")),
+    path("kn-dash/", include("kn_dash.urls")),
     path("", include("pages.urls")),
 ]
 

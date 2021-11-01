@@ -39,6 +39,7 @@ THIRD_PARTY_APPS = [
     "allauth.account",
     "crispy_forms",
     "debug_toolbar",
+    "django_elasticsearch_dsl",
 ]
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -187,3 +188,8 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
+
+ELASTICSEARCH_DSL = {
+    "default": {"hosts": "https://elastic-new.captian.jerinpetergeorge.in/"},
+}
+ELASTICSEARCH_DSL_PARALLEL = True
