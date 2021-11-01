@@ -190,6 +190,6 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 
 ELASTICSEARCH_DSL = {
-    "default": {"hosts": "https://elastic-new.captian.jerinpetergeorge.in/"},
+    "default": {"hosts": "http://srv-captain--elastic-new:9200"},
 }
 ELASTICSEARCH_DSL_PARALLEL = True
