@@ -4,3 +4,4 @@ django-allauth~=0.43.0
 django-crispy-forms~=1.10.0
 psycopg2~=2.9.0
 djangorestframework~=3.13.0
+mysqlclient~=2.1.0
