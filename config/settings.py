@@ -38,6 +38,7 @@ THIRD_PARTY_APPS = [
     "allauth.account",
     "crispy_forms",
     "debug_toolbar",
+    "drf_yasg",
 ]
 INSTALLED_APPS = [
     "django.contrib.admin",
