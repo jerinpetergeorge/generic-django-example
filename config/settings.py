@@ -39,6 +39,7 @@ THIRD_PARTY_APPS = [
     "crispy_forms",
     "debug_toolbar",
     "drf_yasg",
+    "django_extensions",
 ]
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -187,3 +188,8 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
+
+# Development Environment Items
+DEV_EMAIL = env("DEV_EMAIL")
+DEV_PASSWORD = env("DEV_PASSWORD")
+DEV_FULL_NAME = env("DEV_FULL_NAME")
