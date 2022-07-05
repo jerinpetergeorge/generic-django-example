@@ -40,6 +40,7 @@ THIRD_PARTY_APPS = [
     "debug_toolbar",
     "drf_yasg",
     "django_extensions",
+    "rest_framework",
 ]
 INSTALLED_APPS = [
     "django.contrib.admin",

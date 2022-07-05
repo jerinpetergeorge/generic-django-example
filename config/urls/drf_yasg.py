@@ -15,6 +15,7 @@ schema_view = get_schema_view(
     permission_classes=(permissions.AllowAny,),
 )
 
+app_name = "drf_yasg"
 urlpatterns = [
     re_path(
         r"^swagger(?P<format>\.json|\.yaml)$",
