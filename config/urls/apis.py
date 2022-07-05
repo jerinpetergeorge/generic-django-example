@@ -1,3 +1,5 @@
 from django.urls import include, path
 
-urlpatterns = [path("polls/", include("polls.apis.urls"))]
+urlpatterns = [
+    path("polls/", include(("polls.apis.urls", "polls"), namespace="polls-api")),
+]
