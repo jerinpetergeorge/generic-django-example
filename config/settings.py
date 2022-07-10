@@ -36,6 +36,8 @@ LOCAL_APPS = [
 THIRD_PARTY_APPS = [
     "allauth",
     "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.google",
     "crispy_forms",
     "debug_toolbar",
     "drf_yasg",
@@ -187,8 +189,10 @@ ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_USER_MODEL_USERNAME_FIELD = "email"
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
+SOCIALACCOUNT_ADAPTER = "core.allauth.adapter.SocialAccountAdapter"
 
 # Development Environment Items
 DEV_EMAIL = env("DEV_EMAIL")
