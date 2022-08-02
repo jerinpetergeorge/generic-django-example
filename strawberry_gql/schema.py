@@ -2,13 +2,18 @@ import typing
 
 import strawberry
 
+from polls.strawberry.schema import PollQueries
+
 from .resolvers import get_books
-from .types import Book
+from .types import BookType
 
 
 @strawberry.type
-class Query:
-    books: typing.List[Book] = strawberry.field(resolver=get_books)
+class Query(
+    PollQueries,
+):
+    ...
+    books: typing.List[BookType] = strawberry.field(resolver=get_books)
 
 
 # @strawberry.type

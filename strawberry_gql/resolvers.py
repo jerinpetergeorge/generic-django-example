@@ -1,9 +1,9 @@
-from .types import Book
+from .types import BookType
 
 
 def get_books():
     return [
-        Book(
+        BookType(
             title="The Great Gatsby",
             author="F. Scott Fitzgerald",
         ),
