@@ -5,7 +5,20 @@ service: generic-django-example
 provider:
   name: aws
   runtime: python3.8
-
+  environment:
+    SQLITE_S3_BUCKET: ${self:service}-${sls:stage}-sqlite3-bucket
+#    AWS_S3_ACCESS_KEY: ss
+#    AWS_S3_ACCESS_SECRET: sss
+    DJANGO_SETTINGS_MODULE: "config.settings.serverless"
+  iam:
+    role:
+      statements:
+      - Effect: "Allow"
+        Action:
+         - s3:GetObject
+         - s3:PutObject
+        Resource:
+          - 'arn:aws:s3:::${self:provider.environment.SQLITE_S3_BUCKET}/*'
 plugins:
   - serverless-wsgi
   - serverless-python-requirements
@@ -25,3 +38,7 @@ custom:
   wsgi:
     app: config.wsgi.application
     packRequirements: false
+
+package:
+  patterns:
+    - "!node_modules/**"

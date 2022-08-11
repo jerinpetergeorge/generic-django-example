@@ -1,2 +1,4 @@
 -r dev.txt
+boto3==1.24.49
+django-s3-sqlite==0.0.5
 werkzeug==1.0.1

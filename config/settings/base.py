@@ -12,7 +12,7 @@ env.read_env(env("ENV_FILE", default=".envs/env.local"))
 # GENERAL
 # ------------------------------------------------------------------------------
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-SECRET_KEY
 SECRET_KEY = "j2@-mwo#(8k%l9f%zugc=^1%ug9-&xh4wmj!g@6uop@^l%run_"
 # https://docs.djangoproject.com/en/dev/ref/settings/#debug
