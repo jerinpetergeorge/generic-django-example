@@ -13,3 +13,8 @@ media
 .idea/
 
 .fuse_*
+
+# Serverless
+node_modules/*
+config/.requirements/
+.serverless/
