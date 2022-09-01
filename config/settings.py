@@ -43,6 +43,7 @@ THIRD_PARTY_APPS = [
     "drf_yasg",
     "django_extensions",
     "rest_framework",
+    "drf_spectacular",
 ]
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -198,3 +199,15 @@ SOCIALACCOUNT_ADAPTER = "core.allauth.adapter.SocialAccountAdapter"
 DEV_EMAIL = env("DEV_EMAIL")
 DEV_PASSWORD = env("DEV_PASSWORD")
 DEV_FULL_NAME = env("DEV_FULL_NAME")
+
+REST_FRAMEWORK = {
+    # YOUR SETTINGS
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+SPECTACULAR_SETTINGS = {
+    "TITLE": "DRF Spectacular API",
+    "DESCRIPTION": "Your project description",
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False,
+    # OTHER SETTINGS
+}
