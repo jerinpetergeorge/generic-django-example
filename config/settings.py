@@ -204,10 +204,16 @@ REST_FRAMEWORK = {
     # YOUR SETTINGS
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
+
 SPECTACULAR_SETTINGS = {
     "TITLE": "DRF Spectacular API",
     "DESCRIPTION": "Your project description",
     "VERSION": "1.0.0",
     "SERVE_INCLUDE_SCHEMA": False,
-    # OTHER SETTINGS
+    "POSTPROCESSING_HOOKS": [
+        "core.drf_spectacular.hooks.post_hook__add_global_header",
+    ],
+    "PREPROCESSING_HOOKS": [
+        "core.drf_spectacular.hooks.pre_hook__add_global_header",
+    ],
 }
