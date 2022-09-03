@@ -202,7 +202,7 @@ DEV_FULL_NAME = env("DEV_FULL_NAME")
 
 REST_FRAMEWORK = {
     # YOUR SETTINGS
-    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+    "DEFAULT_SCHEMA_CLASS": "core.drf_spectacular.schema.AutoSchema",
 }
 
 SPECTACULAR_SETTINGS = {
