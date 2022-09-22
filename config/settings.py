@@ -32,6 +32,7 @@ LOCAL_APPS = [
     "pages",
     "polls",
     "extra",
+    "attendance",
 ]
 THIRD_PARTY_APPS = [
     "allauth",

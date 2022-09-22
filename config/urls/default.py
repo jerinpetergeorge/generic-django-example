@@ -6,6 +6,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("accounts/", include("allauth.urls")),
     path("polls/", include("polls.urls")),
+    path("attendance/", include("attendance.urls")),
     path("gql/strawberry/", include("strawberry_gql.urls")),
     path("", include("pages.urls")),
 ]
