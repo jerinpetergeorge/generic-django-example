@@ -2,8 +2,6 @@
 FROM python:3.9 as base
 LABEL maintainer="Jerin Peter George <jerinpetergeorge@gmail.com>"
 
-ARG CONTAINER_PORT=5001
-
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
