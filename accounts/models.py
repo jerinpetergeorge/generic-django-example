@@ -23,4 +23,5 @@ class User(AbstractUser):
         db_table = "User"
 
     def __str__(self):
+        # just this
         return f"{self.full_name} ({self.email})"
