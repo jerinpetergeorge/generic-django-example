@@ -1,16 +1,15 @@
-# Pull base image
 FROM python:3.9
+
+LABEL maintainer="Jerin Peter George <jerin.peter@kuwaitnet.com>"
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # Set work directory
-WORKDIR /code
+WORKDIR /app
+
+COPY ./ /app/
 
 # Install dependencies
-COPY Pipfile Pipfile.lock /code/
-RUN pip install pipenv && pipenv install --system
-
-# Copy project
-COPY . /code/
+RUN pip install pip -U && pip install -r requirements.txt
