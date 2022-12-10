@@ -1,6 +1,7 @@
+from django.apps import apps
 from django.contrib import admin
 
-from .models import *
+from .models import Choice, Poll
 
 
 class ChoiceInline(admin.TabularInline):
@@ -25,3 +26,13 @@ class PollAdmin(admin.ModelAdmin):
 
 admin.site.register(Poll, PollAdmin)
 admin.site.register(Choice)
+
+# auto register apps
+app_name = "polls"
+app = apps.get_app_config(app_name)
+
+for model_name, model in app.models.items():
+    try:
+        admin.site.register(model)
+    except admin.sites.AlreadyRegistered:
+        pass
