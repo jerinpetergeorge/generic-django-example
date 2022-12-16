@@ -2,7 +2,13 @@
 omit =
     *migrations*
     *site-packages*
+
+[html]
+skip_covered = True
+skip_empty = True
+
 [report]
+skip_covered = True
 exclude_lines =
     pragma: no cover
     def __repr__

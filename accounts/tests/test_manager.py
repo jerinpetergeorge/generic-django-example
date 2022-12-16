@@ -15,7 +15,7 @@ class TestAuthManager(DjangoTestCase):
         with self.assertRaises(IntegrityError) as ctx:
             User.objects.create_user(email="villanelle@test.com")
         self.assertTrue(
-            "Key (email)=(villanelle@test.com) already exists" in str(ctx.exception),
+            "UNIQUE constraint failed" in str(ctx.exception),
         )
 
     def test_create_user__extra_kwargs(self):
