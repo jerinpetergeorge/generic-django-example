@@ -1,0 +1,18 @@
+[run]
+omit =
+    *migrations*
+    *site-packages*
+[report]
+exclude_lines =
+    pragma: no cover
+    def __repr__
+    def __str__
+    raise AssertionError
+    raise NotImplementedError
+    if 0:
+omit =
+    *migrations*
+    *site-packages*
+    *admin.py
+sort = -cover
+precision = 3

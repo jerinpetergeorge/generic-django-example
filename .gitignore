@@ -13,3 +13,4 @@ media
 .idea/
 
 .fuse_*
+.coverage
