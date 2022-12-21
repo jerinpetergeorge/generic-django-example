@@ -218,3 +218,7 @@ SPECTACULAR_SETTINGS = {
         "core.drf_spectacular.hooks.pre_hook__add_global_header",
     ],
 }
+
+# Celery Config
+# https://docs.celeryq.dev/en/stable/userguide/configuration.html
+CELERY_BROKER_URL = env("CELERY_BROKER_URL", default="redis://localhost:6379/5")
