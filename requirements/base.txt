@@ -1,3 +1,4 @@
+celery~=5.2.7
 django~=3.2.0
 django-allauth~=0.43.0
 django-crispy-forms~=1.10.0
@@ -10,5 +11,6 @@ factory_boy~=3.2.1
 mysqlclient~=2.1.0
 Pillow~=9.3.0
 psycopg2~=2.9.0
+redis~=4.4.0
 strawberry-graphql~=0.123.2
 strawberry-graphql-django~=0.4.0
