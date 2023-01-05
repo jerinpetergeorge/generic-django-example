@@ -1,5 +1,6 @@
 from pathlib import Path
 
+import rest_framework
 from environ import Env
 
 env = Env()
@@ -222,3 +223,7 @@ SPECTACULAR_SETTINGS = {
 # Celery Config
 # https://docs.celeryq.dev/en/stable/userguide/configuration.html
 CELERY_BROKER_URL = env("CELERY_BROKER_URL", default="redis://localhost:6379/5")
+
+# TEMP SETTINGS
+# https://github.com/axnsan12/drf-yasg/issues/813
+DRF_YASG_AVAILABLE = rest_framework.VERSION < "3.14.0"
