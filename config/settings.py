@@ -1,3 +1,4 @@
+from datetime import timedelta
 from pathlib import Path
 
 from environ import Env
@@ -45,6 +46,7 @@ THIRD_PARTY_APPS = [
     "django_extensions",
     "rest_framework",
     "drf_spectacular",
+    "rest_framework_simplejwt",
 ]
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -204,6 +206,11 @@ DEV_FULL_NAME = env("DEV_FULL_NAME")
 REST_FRAMEWORK = {
     # YOUR SETTINGS
     "DEFAULT_SCHEMA_CLASS": "core.drf_spectacular.schema.AutoSchema",
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework.authentication.SessionAuthentication",  # default
+        "rest_framework.authentication.BasicAuthentication",  # default
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
 }
 
 SPECTACULAR_SETTINGS = {
@@ -217,6 +224,12 @@ SPECTACULAR_SETTINGS = {
     "PREPROCESSING_HOOKS": [
         "core.drf_spectacular.hooks.pre_hook__add_global_header",
     ],
+}
+
+# https://django-rest-framework-simplejwt.readthedocs.io/en/latest/settings.html
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
+    "REFRESH_TOKEN_LIFETIME": timedelta(hours=5),
 }
 
 # Celery Config
