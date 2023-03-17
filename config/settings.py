@@ -8,7 +8,7 @@ env = Env()
 # option to attach an env file
 # default location is `.env-dir/local`
 # if file not found, simply ignored
-env.read_env(env("ENV_FILE", default=".envs/env.local"))
+env.read_env(env("ENV_FILE", default=".envs/.env"))
 
 # GENERAL
 # ------------------------------------------------------------------------------
@@ -162,7 +162,8 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 # EMAIL
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_CONFIG = env.email_url(default="smtp://user:password@localhost:25")
+vars().update(EMAIL_CONFIG)
 
 # DJANGO-DEBUG-TOOLBAR CONFIGS
 # ------------------------------------------------------------------------------
