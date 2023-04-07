@@ -9,6 +9,7 @@ djangorestframework-simplejwt~=5.2.2
 drf-spectacular~=0.23.1
 drf-yasg==1.20.0
 factory_boy~=3.2.1
+git+https://github.com/jerinpetergeorge/django-dev-superuser.git@main
 mysqlclient~=2.1.0
 Pillow~=9.3.0
 psycopg2~=2.9.0

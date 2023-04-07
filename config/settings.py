@@ -47,6 +47,7 @@ THIRD_PARTY_APPS = [
     "rest_framework",
     "drf_spectacular",
     "rest_framework_simplejwt",
+    "django_su",
 ]
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -200,9 +201,14 @@ ACCOUNT_UNIQUE_EMAIL = True
 SOCIALACCOUNT_ADAPTER = "core.allauth.adapter.SocialAccountAdapter"
 
 # Development Environment Items
-DEV_EMAIL = env("DEV_EMAIL")
-DEV_PASSWORD = env("DEV_PASSWORD")
-DEV_FULL_NAME = env("DEV_FULL_NAME")
+DJANGO_SU_CONFIG = {
+    "USERNAME_FIELD": "email",
+    "USERNAME": env("DJANGO_SU_USERNAME", default="admin@admin.com"),
+    "PASSWORD": env("DJANGO_SU_PASSWORD", default="password"),
+    "EXTRA_ARGS": {
+        "full_name": env("DJANGO_SU_FULL_NAME", default="Admin"),
+    },
+}
 
 REST_FRAMEWORK = {
     # YOUR SETTINGS
