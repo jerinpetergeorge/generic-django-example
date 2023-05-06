@@ -177,6 +177,13 @@ INTERNAL_IPS = ["127.0.0.1"]
 # https://docs.djangoproject.com/en/dev/topics/auth/customizing/#substituting-a-custom-user-model
 AUTH_USER_MODEL = "accounts.User"
 
+CACHES = {
+    "default": {
+        "BACKEND": "core.redis.cache.RedisCache",
+        "LOCATION": env("REDIS_URL", default="redis://localhost:6379"),
+    },
+}
+
 # DJANGO-ALLAUTH CONFIGS
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#site-id
@@ -242,3 +249,6 @@ SIMPLE_JWT = {
 # Celery Config
 # https://docs.celeryq.dev/en/stable/userguide/configuration.html
 CELERY_BROKER_URL = env("CELERY_BROKER_URL", default="redis://localhost:6379/5")
+
+
+#
