@@ -15,3 +15,5 @@ media
 .fuse_*
 .coverage
 .envs/
+
+staticfiles/
