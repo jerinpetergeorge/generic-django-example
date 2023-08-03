@@ -31,7 +31,7 @@ jobs:
         env:
           DATABASE_URL: "sqlite:///django-example-db.sqlite3"
 
-      - name: Upload coverage reports to Codecov
+      - name: Codecov Upload
         uses: codecov/codecov-action@v3
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
