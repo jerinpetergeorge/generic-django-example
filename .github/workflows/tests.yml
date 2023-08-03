@@ -27,7 +27,7 @@ jobs:
       - name: Run Tests
         run: |
           coverage run ./manage.py test
-          coverage report
+          coverage report > coverage_report.txt
         env:
           DATABASE_URL: "sqlite:///django-example-db.sqlite3"
 
@@ -35,3 +35,18 @@ jobs:
         uses: codecov/codecov-action@v3
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Upload coverage results as PR comment
+        uses: actions/github-script@v4
+        with:
+          script: |
+            const fs = require('fs');
+            const report = fs.readFileSync('coverage_report.txt', 'utf8');
+            const context = github.context;
+            const octokit = new github.getOctokit(github.token);
+            octokit.pulls.createReview({
+              ...context.repo,
+              pull_number: context.payload.pull_request.number,
+              event: 'COMMENT',
+              body: `\`\`\`\n${report}\n\`\`\``
+            });
