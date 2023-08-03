@@ -40,13 +40,9 @@ jobs:
         uses: actions/github-script@v4
         with:
           script: |
-            const fs = require('fs');
-            const report = fs.readFileSync('coverage_report.txt', 'utf8');
-            const context = github.context;
-            const octokit = new github.getOctokit(github.token);
-            octokit.pulls.createReview({
-              ...context.repo,
-              pull_number: context.payload.pull_request.number,
-              event: 'COMMENT',
-              body: `\`\`\`\n${report}\n\`\`\``
-            });
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '👋 Thanks for reporting!'
+            })
