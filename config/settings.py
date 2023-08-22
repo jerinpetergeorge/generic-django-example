@@ -1,7 +1,9 @@
 from datetime import timedelta
 from pathlib import Path
 
+import sentry_sdk
 from environ import Env
+from sentry_sdk.integrations.django import DjangoIntegration
 
 env = Env()
 
@@ -252,3 +254,15 @@ CELERY_BROKER_URL = env("CELERY_BROKER_URL", default="redis://localhost:6379/5")
 
 
 #
+SENTRY_DSN = env("SENTRY_DSN", default="")
+sentry_sdk.init(
+    dsn=SENTRY_DSN,
+    integrations=[
+        DjangoIntegration(
+            transaction_style="url",
+            middleware_spans=True,
+            signals_spans=False,
+            cache_spans=False,
+        ),
+    ],
+)
